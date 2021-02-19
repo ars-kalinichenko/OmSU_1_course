@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.17)
+project(OmSU_2020 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 14) # стандарт с++ 2014
+
+set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/include)
+set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
+
+file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
+
+
+include_directories(${PROJECT_HEADERS_DIR})
+add_subdirectory(src)
+
+

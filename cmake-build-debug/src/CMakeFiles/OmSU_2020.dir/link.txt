@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/OmSU_2020.dir/main.cpp.o CMakeFiles/OmSU_2020.dir/matrix.cpp.o  -o OmSU_2020  -lpthread 

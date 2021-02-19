@@ -1,0 +1,2 @@
+/usr/bin/ar qc libseminar_lib.a  CMakeFiles/seminar_lib.dir/main.cpp.o CMakeFiles/seminar_lib.dir/matrix.cpp.o
+/usr/bin/ranlib libseminar_lib.a
