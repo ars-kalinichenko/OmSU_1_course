@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/constants.h
-string
--
-map
--
-
 ../include/matrix.h
 string
 -
@@ -23,12 +17,4 @@ iostream
 -
 matrix.h
 /home/arseny/CLionProjects/OmSU_2020/src/matrix.h
-
-/home/arseny/CLionProjects/OmSU_2020/src/matrix.cpp
-matrix.h
-/home/arseny/CLionProjects/OmSU_2020/src/matrix.h
-iostream
--
-constants.h
-/home/arseny/CLionProjects/OmSU_2020/src/constants.h
 
