@@ -1,7 +1,4 @@
 #include <iostream>
-#include <fstream>
-#include <random>
-#include <cassert>
 #include "analyzer.h"
 
 using namespace std;
