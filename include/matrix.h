@@ -18,7 +18,9 @@ private:
      *                 Индекс ключа в массиве - номер строки.
      */
     void _calculateKeys(int *);
-    void _printKeys(int*) const;
+
+    void _printKeys(int *) const;
+
     static void _swapKeys(int, int, int *);
 
     void _swapRows(int, int);

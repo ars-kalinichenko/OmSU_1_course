@@ -127,19 +127,19 @@ void Matrix::sortMatrix() {
                 if (keys[i] < keys[i + 1]) {
                     _swapRows(i, i + 1);
                     _swapKeys(i, i + 1, keys);
-                    control=i;
+                    control = i;
                 }
             }
-            right=control;
+            right = control;
 
             for (int j = right; j > left; j--) {
                 if (keys[j - 1] < keys[j]) {
                     _swapRows(j, j - 1);
                     _swapKeys(j, j - 1, keys);
-                    control=j;
+                    control = j;
                 }
             }
-            left=control;
+            left = control;
         }
         delete[] keys;
     } else _processError(SORT_ERROR);

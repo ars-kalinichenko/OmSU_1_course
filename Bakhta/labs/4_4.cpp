@@ -1,4 +1,5 @@
 const int MAX_ROWS = 10;
+
 int InitMatrix(int arr[][MAX_ROWS], int rows, int columns)
 /*
  * Функция заполняет массив элементами i+j,
