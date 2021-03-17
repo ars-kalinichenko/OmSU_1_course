@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/src/cmake_install.cmake")
+  include("/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/Bakhta/individual_homework/ihw_1_1/src/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

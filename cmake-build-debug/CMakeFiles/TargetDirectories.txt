@@ -1,6 +1,5 @@
 /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
-/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/src/CMakeFiles/seminar_lib.dir
-/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/src/CMakeFiles/edit_cache.dir
-/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/src/CMakeFiles/OmSU_2020.dir
+/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/rebuild_cache.dir
+/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/edit_cache.dir
+/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir

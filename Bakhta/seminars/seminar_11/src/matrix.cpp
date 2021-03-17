@@ -1,6 +1,6 @@
-#include "matrix.h"
+#include "../include/matrix.h"
 #include <iostream>
-#include "constants.h"
+#include "../include/constants.h"
 #include <algorithm>
 #include <random>
 
@@ -92,6 +92,18 @@ void Matrix::printMatrix() {
     }
 }
 
+void Matrix::_swapRows(int firstRowIndex, int secondRowIndex) {
+    int *tempRow = _matrix[firstRowIndex];
+    _matrix[firstRowIndex] = _matrix[secondRowIndex];
+    _matrix[secondRowIndex] = tempRow;
+}
+
+void Matrix::_swapKeys(int firstIndex, int secondIndex, int *keys) {
+    int tempKey = keys[firstIndex];
+    keys[firstIndex] = keys[secondIndex];
+    keys[secondIndex] = tempKey;
+}
+
 void Matrix::_calculateKeys(int *keys) {
     if (_rows > 0 and _columns > 0 and keys != nullptr) {
         int maxLen;
@@ -145,19 +157,8 @@ void Matrix::sortMatrix() {
     } else _processError(SORT_ERROR);
 }
 
-void Matrix::_swapRows(int firstRowIndex, int secondRowIndex) {
-    int *tempRow = _matrix[firstRowIndex];
-    _matrix[firstRowIndex] = _matrix[secondRowIndex];
-    _matrix[secondRowIndex] = tempRow;
-}
-
-void Matrix::_swapKeys(int firstIndex, int secondIndex, int *keys) {
-    int tempKey = keys[firstIndex];
-    keys[firstIndex] = keys[secondIndex];
-    keys[secondIndex] = tempKey;
-}
-
 void Matrix::_printKeys(int *keys) const {
+    std::cout << endl << "Ключи: ";
     for (int i = 0; i < _rows; i++) {
         std::cout << keys[i] << " ";
     }

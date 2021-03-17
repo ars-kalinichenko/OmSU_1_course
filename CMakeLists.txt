@@ -3,14 +3,18 @@ project(OmSU_2020 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14) # стандарт с++ 2014
 
-set(PROJECT_HEADERS_DIR ${PROJECT_SOURCE_DIR}/include)
-set(PROJECT_SOURCES_DIR ${PROJECT_SOURCE_DIR}/src)
+# set your path to project
+set(MAIN_DIR ${PROJECT_SOURCE_DIR}/Bakhta/individual_homework/ihw_1_1)
 
-file(GLOB_RECURSE HEADERS ${PROJECT_HEADERS_DIR}/*.h)
-file(GLOB_RECURSE SOURCES ${PROJECT_SOURCES_DIR}/*.cpp)
+set(PROJECT_HEADERS_DIR ${MAIN_DIR}/include)
+set(PROJECT_SOURCES_DIR ${MAIN_DIR}/src)
+
+#todo: global to local
+file(GLOB_RECURSE HEADERS ${MAIN_DIR}/*.h)
+file(GLOB_RECURSE SOURCES ${MAIN_DIR}/*.cpp)
 
 
-include_directories(${PROJECT_HEADERS_DIR})
-add_subdirectory(src)
+include_directories(${MAIN_DIR})
+add_subdirectory(${MAIN_DIR}/src)
 
 

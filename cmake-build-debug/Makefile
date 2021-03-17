@@ -131,19 +131,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named seminar_lib
-
-# Build rule for target.
-seminar_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 seminar_lib
-.PHONY : seminar_lib
-
-# fast build rule for target.
-seminar_lib/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/seminar_lib.dir/build.make src/CMakeFiles/seminar_lib.dir/build
-.PHONY : seminar_lib/fast
-
-#=============================================================================
 # Target rules for targets named OmSU_2020
 
 # Build rule for target.
@@ -153,7 +140,7 @@ OmSU_2020: cmake_check_build_system
 
 # fast build rule for target.
 OmSU_2020/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/OmSU_2020.dir/build.make src/CMakeFiles/OmSU_2020.dir/build
+	$(MAKE) $(MAKESILENT) -f Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/build.make Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/build
 .PHONY : OmSU_2020/fast
 
 # Help Target
@@ -165,7 +152,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OmSU_2020"
-	@echo "... seminar_lib"
 .PHONY : help
 
 

@@ -73,93 +73,64 @@ CMAKE_BINARY_DIR = /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: src/all
+all: Bakhta/individual_homework/ihw_1_1/src/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: src/preinstall
+preinstall: Bakhta/individual_homework/ihw_1_1/src/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: src/clean
+clean: Bakhta/individual_homework/ihw_1_1/src/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory src
+# Directory level rules for directory Bakhta/individual_homework/ihw_1_1/src
 
 # Recursive "all" directory target.
-src/all: src/CMakeFiles/seminar_lib.dir/all
-src/all: src/CMakeFiles/OmSU_2020.dir/all
+Bakhta/individual_homework/ihw_1_1/src/all: Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/all
 
-.PHONY : src/all
+.PHONY : Bakhta/individual_homework/ihw_1_1/src/all
 
 # Recursive "preinstall" directory target.
-src/preinstall:
+Bakhta/individual_homework/ihw_1_1/src/preinstall:
 
-.PHONY : src/preinstall
+.PHONY : Bakhta/individual_homework/ihw_1_1/src/preinstall
 
 # Recursive "clean" directory target.
-src/clean: src/CMakeFiles/seminar_lib.dir/clean
-src/clean: src/CMakeFiles/OmSU_2020.dir/clean
+Bakhta/individual_homework/ihw_1_1/src/clean: Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/clean
 
-.PHONY : src/clean
-
-#=============================================================================
-# Target rules for target src/CMakeFiles/seminar_lib.dir
-
-# All Build rule for target.
-src/CMakeFiles/seminar_lib.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/seminar_lib.dir/build.make src/CMakeFiles/seminar_lib.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/seminar_lib.dir/build.make src/CMakeFiles/seminar_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles --progress-num=4,5,6 "Built target seminar_lib"
-.PHONY : src/CMakeFiles/seminar_lib.dir/all
-
-# Build rule for subdir invocation for target.
-src/CMakeFiles/seminar_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/seminar_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles 0
-.PHONY : src/CMakeFiles/seminar_lib.dir/rule
-
-# Convenience name for target.
-seminar_lib: src/CMakeFiles/seminar_lib.dir/rule
-
-.PHONY : seminar_lib
-
-# clean rule for target.
-src/CMakeFiles/seminar_lib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/seminar_lib.dir/build.make src/CMakeFiles/seminar_lib.dir/clean
-.PHONY : src/CMakeFiles/seminar_lib.dir/clean
+.PHONY : Bakhta/individual_homework/ihw_1_1/src/clean
 
 #=============================================================================
-# Target rules for target src/CMakeFiles/OmSU_2020.dir
+# Target rules for target Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir
 
 # All Build rule for target.
-src/CMakeFiles/OmSU_2020.dir/all:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/OmSU_2020.dir/build.make src/CMakeFiles/OmSU_2020.dir/depend
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/OmSU_2020.dir/build.make src/CMakeFiles/OmSU_2020.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target OmSU_2020"
-.PHONY : src/CMakeFiles/OmSU_2020.dir/all
+Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/all:
+	$(MAKE) $(MAKESILENT) -f Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/build.make Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/depend
+	$(MAKE) $(MAKESILENT) -f Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/build.make Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target OmSU_2020"
+.PHONY : Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/all
 
 # Build rule for subdir invocation for target.
-src/CMakeFiles/OmSU_2020.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/OmSU_2020.dir/all
+Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug/CMakeFiles 0
-.PHONY : src/CMakeFiles/OmSU_2020.dir/rule
+.PHONY : Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/rule
 
 # Convenience name for target.
-OmSU_2020: src/CMakeFiles/OmSU_2020.dir/rule
+OmSU_2020: Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/rule
 
 .PHONY : OmSU_2020
 
 # clean rule for target.
-src/CMakeFiles/OmSU_2020.dir/clean:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/OmSU_2020.dir/build.make src/CMakeFiles/OmSU_2020.dir/clean
-.PHONY : src/CMakeFiles/OmSU_2020.dir/clean
+Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/build.make Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/clean
+.PHONY : Bakhta/individual_homework/ihw_1_1/src/CMakeFiles/OmSU_2020.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
