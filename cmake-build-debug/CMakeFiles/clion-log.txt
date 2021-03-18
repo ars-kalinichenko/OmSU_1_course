@@ -1,4 +1,0 @@
-/home/arseny/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7148.70/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/arseny/CLionProjects/OmSU_2020
--- Configuring done
--- Generating done
--- Build files have been written to: /home/arseny/CLionProjects/OmSU_2020/cmake-build-debug

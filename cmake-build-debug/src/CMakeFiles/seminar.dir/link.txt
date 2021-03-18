@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/seminar.dir/main.cpp.o CMakeFiles/seminar.dir/matrix.cpp.o  -o seminar  -lpthread 
