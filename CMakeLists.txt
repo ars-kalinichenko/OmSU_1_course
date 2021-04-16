@@ -3,7 +3,7 @@ project(OmSU_2020 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 14) # стандарт с++ 2014
 
-# set your path to project
+# set your path to subproject(seminars, labs, ihw)
 set(MAIN_DIR ${PROJECT_SOURCE_DIR}/Bakhta/seminars/seminar_11)
 
 set(PROJECT_HEADERS_DIR ${MAIN_DIR}/include)
