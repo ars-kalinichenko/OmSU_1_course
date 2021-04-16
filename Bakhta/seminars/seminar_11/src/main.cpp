@@ -9,14 +9,13 @@ void testDeque();
 void testQueue();
 
 int main() {
-//    testDeque();
-    testQueue();
+    testDeque();
+//    testQueue();
     return 0;
 }
 
 void testDeque() {
-    int *arr = new int[20];
-    Deque deque = Deque(arr, 20);
+    Deque deque = Deque(20);
     cout << deque.isEmpty() << endl;
     cout << deque.isFull() << endl;
     deque.putFront(10);
@@ -37,8 +36,7 @@ void testDeque() {
 }
 
 void testQueue() {
-    int *arr = new int[20];
-    Queue queue = Queue(arr, 20);
+    Queue queue = Queue(20);
     cout << queue.isEmpty() << endl;
     cout << queue.isFull() << endl;
 

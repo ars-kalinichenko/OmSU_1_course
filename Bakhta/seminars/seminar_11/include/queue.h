@@ -11,7 +11,7 @@ class Queue {
     unsigned short code = 0;
 
 public:
-    Queue(int *, int);
+    Queue(int);
 
     Queue(const Queue &);
 
@@ -50,6 +50,7 @@ public:
 
     unsigned short getCode() const;
 
+    int getSize() const;
 };
 
 #endif //UNTITLED1_QUEUE_H

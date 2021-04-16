@@ -11,7 +11,7 @@ class Deque {
     unsigned short code = 0;
 
 public:
-    Deque(int *, int);
+    Deque(int);
 
     Deque(const Deque &);
 

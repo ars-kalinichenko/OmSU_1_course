@@ -1,18 +1,20 @@
-
 #include <include/deque.h>
 
-Deque::Deque(int *dynamicArray, int arraySize) {
-    array = dynamicArray;
+Deque::Deque(int arraySize) {
+    array = new int[arraySize];
     size = arraySize;
     front = -1;
-    rear = 0;
+    rear = -1;
 }
 
 Deque::Deque(const Deque &deque) {
-    array = deque.array;
     size = deque.size;
     front = deque.front;
     rear = deque.rear;
+    array = new int[deque.size];
+    for (int i = 0; i < deque.size; i++) {
+        array[i] = deque.array[i];
+    }
 }
 
 Deque::~Deque() {

@@ -1,10 +1,20 @@
 #include <include/queue.h>
 
+Queue::Queue(int arraySize) {
+    array = new int[arraySize];
+    size = arraySize;
+    front = -1;
+    rear = -1;
+}
+
 Queue::Queue(const Queue &queue) {
-    array = queue.array;
     size = queue.size;
     front = queue.front;
     rear = queue.rear;
+    array = new int[queue.size];
+    for (int i = 0; i < queue.size; i++) {
+        array[i] = queue.array[i];
+    }
 }
 
 Queue::~Queue() {
@@ -14,13 +24,6 @@ Queue::~Queue() {
 
 bool Queue::isEmpty() const {
     return front == -1 and rear == -1;
-}
-
-Queue::Queue(int *dynamicArray, int arraySize) {
-    array = dynamicArray;
-    size = arraySize;
-    front = -1;
-    rear = -1;
 }
 
 void Queue::put(int value) {
@@ -40,6 +43,10 @@ bool Queue::isFull() const {
 void Queue::clear() {
     front = -1;
     rear = -1;
+}
+
+int Queue::getSize() const {
+    return rear + 1;
 }
 
 int Queue::takeFirst() {
