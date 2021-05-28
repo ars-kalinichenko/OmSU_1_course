@@ -22,15 +22,14 @@ Matrix::Matrix(int rows, int columns) {
 }
 
 Matrix::Matrix(const Matrix &matrix) {
-    //todo: add deep copy for array
-
-    _matrix = matrix._matrix;
     _rows = matrix._rows;
     _columns = matrix._columns;
-}
-
-void Matrix::InputMatrix() {
-
+    _matrix = new int *[_columns];
+    for (int i = 0; i < _columns; i++) {
+        for (int j = 0; j < _rows; j++) {
+            _matrix[i][j] = matrix._matrix[i][j];
+        }
+    }
 }
 
 void Matrix::randomFillMatrix() {
