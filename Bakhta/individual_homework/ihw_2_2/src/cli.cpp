@@ -9,9 +9,9 @@ void UpdateScreen(Matrix *matrix, int inputtedRow, int inputtedColumn, int eleme
     for (int row = 0; row < matrix->getRowsCount(); row++) {
         for (int column = 0; column < matrix->getColumnsCount(); column++) {
             if (row == inputtedRow and column == inputtedColumn) {
-                printw("[%s]", to_string(matrix->getElement(row, column)).c_str());
+                printw("[%s]", to_string(matrix->getElement(column, row)).c_str());
             } else {
-                printw("%s", to_string(matrix->getElement(row, column)).c_str());
+                printw("%s", to_string(matrix->getElement(column, row)).c_str());
             }
             printw(" ");
             refresh();
@@ -49,9 +49,9 @@ int InputSizeMatrix(int &countRows, int &countCols)
 
 Matrix *CreateZeroMatrix(int &rows, int &columns) {
     auto *matrix = new Matrix(rows, columns);
-    for (int row = 0; row < rows; row++) {
-        for (int column = 0; column < columns; column++) {
-            matrix->changeElement(row, column, 0);
+    for (int column = 0; column < columns; column++) {
+        for (int row = 0; row < rows; row++) {
+            matrix->changeElement(column, row, -1);
         }
     }
     return matrix;
@@ -59,17 +59,11 @@ Matrix *CreateZeroMatrix(int &rows, int &columns) {
 
 Matrix *CreateRandomMatrix(int &rows, int &columns) {
     auto *matrix = new Matrix(rows, columns);
-    int element;
-    for (int row = 0; row < rows; row++) {
-        for (int column = 0; column < columns; column++) {
-            element = rand() % 60;
-            matrix->changeElement(row, column, element);
-        }
-    }
+    matrix->randomFillMatrix();
     return matrix;
 }
 
-Matrix *CreateMatrixFromFile(int &rows, int &columns) {
+Matrix *CreateMatrixFromFile(int &rows, int &columns, string &name) {
 
 }
 
@@ -104,7 +98,7 @@ int MatrixEditor(Matrix *matrix) {
             if (enterPressed) {
                 printw("\nInput your element ");
                 scanw("%i", &changedElement);
-                matrix->changeElement(row, column, changedElement);
+                matrix->changeElement(column, row, changedElement);
             }
         }
         element = matrix->getElement(row, column);

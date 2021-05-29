@@ -11,7 +11,7 @@ Matrix::Matrix(int rows, int columns) {
         _rows = rows;
         _columns = columns;
         _matrix = new int *[columns];
-        for (int column = 0; column < rows; column++) {
+        for (int column = 0; column < columns; column++) {
             _matrix[column] = new int[rows];
         }
     } else {
@@ -37,9 +37,9 @@ void Matrix::randomFillMatrix() {
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<> dist(-10, 30);
-        for (int column = 0; column < _columns; ++column) {
-            for (int row = 0; row < _rows; ++row) {
-                _matrix[column][row] = dist(gen);
+        for (int col = 0; col < _columns; col++) {
+            for (int row = 0; row < _rows; row++) {
+                changeElement(col, row, dist(gen));
             }
         }
     }
@@ -50,17 +50,17 @@ void Matrix::_processError(int numError) {
     std::cout << message << std::endl;
 }
 
-void Matrix::changeElement(int row, int column, int element) {
+void Matrix::changeElement(int column, int row, int element) {
     if (row >= 0 and column >= 0 and row < _rows and column < _columns) {
-        _matrix[row][column] = element;
+        _matrix[column][row] = element;
     } else {
         _processError(CHANGE_ERROR);
     }
 }
 
-int Matrix::getElement(int row, int column) {
-    if (row >= 0 and column >= 0 and row < _rows and column < _columns) {
-        return _matrix[row][column];
+int Matrix::getElement(int column, int row) {
+    if (column >= 0 and row >= 0 and row < _rows and column < _columns) {
+        return _matrix[column][row];
     } else {
         _processError(GET_ERROR);
         return -1;
@@ -86,76 +86,95 @@ Matrix::~Matrix() {
     }
 }
 
-void Matrix::_swapRows(int firstRowIndex, int secondRowIndex) {
-    int *tempRow = _matrix[firstRowIndex];
-    _matrix[firstRowIndex] = _matrix[secondRowIndex];
-    _matrix[secondRowIndex] = tempRow;
-}
-
-void Matrix::_swapKeys(int firstIndex, int secondIndex, int *keys) {
-    int tempKey = keys[firstIndex];
-    keys[firstIndex] = keys[secondIndex];
-    keys[secondIndex] = tempKey;
-}
-
 void Matrix::_calculateKeys(int *keys) {
     if (_rows > 0 and _columns > 0) {
-        int maxLen;
-
-        for (int row = 0; row < _rows; row++) {
-            maxLen = 0;
-            for (int element = 0; element < _columns; element++) {
-                if (_matrix[row][element] > 0) {
-                    maxLen++;
-                } else if (maxLen > keys[row] and _matrix[row][element] != 0) {
-                    keys[row] = maxLen;
-                    maxLen = 0;
+        int count;
+        for (int column = 0; column < _columns; column++) {
+            count = 0;
+            for (int element = 0; element < _rows; element++) {
+                if (_matrix[column][element] < 0) {
+                    count++;
                 }
             }
-            if (maxLen > keys[row]) keys[row] = maxLen;
+            keys[column] = count;
         }
     } else {
         _processError(ROW_KEY_ERROR);
     }
 }
 
+
 void Matrix::sortMatrix() {
+
     if (_rows > 0 and _columns > 0) {
-        int *keys = new int[_rows];
-        std::fill_n(keys, _rows, 0);
+        int *keys = new int[_columns];
         _calculateKeys(keys);
         _printKeys(keys);
-        int left = 0;
-        int right = _rows - 1;
-        int control = _rows;
-        while (left < right) {
-            for (int i = left; i < right; i++) {
-                if (keys[i] < keys[i + 1]) {
-                    _swapRows(i, i + 1);
-                    _swapKeys(i, i + 1, keys);
-                    control = i;
-                }
-            }
-            right = control;
-
-            for (int j = right; j > left; j--) {
-                if (keys[j - 1] < keys[j]) {
-                    _swapRows(j, j - 1);
-                    _swapKeys(j, j - 1, keys);
-                    control = j;
-                }
-            }
-            left = control;
-        }
+        mergeSort(keys, 0, _columns - 1);
+        _printKeys(keys);
         delete[] keys;
     } else _processError(SORT_ERROR);
 }
 
 void Matrix::_printKeys(int *keys) const {
     std::cout << endl << "Ключи: ";
-    for (int i = 0; i < _rows; i++) {
+    for (int i = 0; i < _columns; i++) {
         std::cout << keys[i] << " ";
     }
     std::cout << std::endl;
+}
+
+void Matrix::merge(int *keys, int **matrix, int low, int high, int mid) {
+    int i, j, k;
+    int *temp = new int[_columns];
+    int **tempMatrix = new int *[_columns];
+    for (int col = 0; col < _columns; col++) {
+        tempMatrix[col] = new int[_rows];
+    }
+    i = low;
+    k = low;
+    j = mid + 1;
+    while (i <= mid && j <= high) {
+        if (keys[i] < keys[j]) {
+            temp[k] = keys[i];
+            tempMatrix[k] = matrix[i];
+            i++;
+        } else {
+            temp[k] = keys[j];
+            tempMatrix[k] = matrix[j];
+            j++;
+        }
+        k++;
+    }
+    while (i <= mid) {
+        temp[k] = keys[i];
+        tempMatrix[k] = matrix[i];
+        k++;
+        i++;
+    }
+    while (j <= high) {
+        temp[k] = keys[j];
+        tempMatrix[k] = matrix[j];
+        k++;
+        j++;
+    }
+    for (i = low; i < k; i++) {
+        keys[i] = temp[i];
+        matrix[i] = tempMatrix[i];
+    }
+    delete[] temp;
+    delete[] tempMatrix;
+}
+
+void Matrix::mergeSort(int *keys, int low, int high) {
+    int mid;
+    if (low < high) {
+        //divide the array at mid and sort independently using merge sort
+        mid = (low + high) / 2;
+        mergeSort(keys, low, mid);
+        mergeSort(keys, mid + 1, high);
+        //merge or conquer sorted arrays
+        merge(keys, _matrix, low, high, mid);
+    }
 }
 

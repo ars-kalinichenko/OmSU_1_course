@@ -33,7 +33,7 @@ int main() {
             isCreated = true;
         } else if (num == 3) {
             InputSizeMatrix(rows, columns);
-            matrix = CreateMatrixFromFile(rows, columns);
+            matrix = CreateMatrixFromFile(rows, columns, (string &) "input.txt");
             isCreated = true;
         } else if (num == 4) {
             if (isCreated) {
@@ -41,11 +41,14 @@ int main() {
             } else cout << "Матрица не задана!" << endl;
         } else if (num == 5) {
             if (isCreated) {
+                int *keys = new int[matrix->getColumnsCount()];
                 matrix->sortMatrix();
+                delete[] keys;
             } else cout << "Матрица не задана!" << endl;
         } else if (num == 6) {
             exit(0);
         }
     } while (num != 6);
 }
+
 

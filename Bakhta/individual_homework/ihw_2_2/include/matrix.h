@@ -13,17 +13,15 @@ private:
     static void _processError(int);
 
     /*
-     * Подсчитывает максимальную длину положительных чисел в строке
+     * Подсчитывает количество отрицательных элементов в каждом столбце
      * @params: int* - указатель на массив, в котором будут храниться ключи.
-     *                 Индекс ключа в массиве - номер строки.
+     *                 Индекс ключа в массиве - номер столбца.
      */
     void _calculateKeys(int *);
 
     void _printKeys(int *) const;
 
-    static void _swapKeys(int, int, int *);
-
-    void _swapRows(int, int);
+    void merge(int *, int **, int, int, int);
 
 public:
 
@@ -32,8 +30,6 @@ public:
     Matrix(const Matrix &);
 
     void randomFillMatrix();
-
-    void InputMatrix();
 
     /*
      * Inplace сортирует строки матрицы по невозрастанию максимальной длины цепочки подряд идущих положительных элементов.
@@ -61,6 +57,8 @@ public:
     int getColumnsCount() const;
 
     ~Matrix();
+
+    void mergeSort(int *, int, int);
 };
 
 #endif //SEMINAR_MATRIX_H
