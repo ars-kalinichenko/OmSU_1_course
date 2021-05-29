@@ -27,10 +27,11 @@ void MatrixEditor(Matrix *);
 void UpdateScreen(Matrix *, int, int, int);
 
 /*
- * Позволяет вводить размеры матрицы, ограничивая их нулем
- * @return by ref.:
- *      Количество строк
- *      Количество столбцов
+ * Функция запрашивает у пользователя кол-во строк, столбцов.
+ * Больше 0, но меньше максимальных.
+ * @output by reference:
+ *      countRows - кол-во строк
+ *      countCols - кол-во столбцов
  */
 int InputSizeMatrix(int &, int &);
 
@@ -72,6 +73,6 @@ Matrix *CreateRandomMatrix(int &, int &);
  * @returns:
  *      Указатель на созданную матрицу
  */
-Matrix *CreateMatrixFromFile(int &, int &, std::string &);
+bool CreateMatrixFromFile(int, int, std::fstream &, Matrix *);
 
 #endif //OMSU_2020_CLI_H

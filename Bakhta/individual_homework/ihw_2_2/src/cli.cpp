@@ -1,7 +1,7 @@
 #include <include/cli.h>
 #include <iostream>
 #include <ncurses.h>
-
+#include <fstream>
 using namespace std;
 
 void UpdateScreen(Matrix *matrix, int inputtedRow, int inputtedColumn, int element) {
@@ -27,13 +27,6 @@ void UpdateScreen(Matrix *matrix, int inputtedRow, int inputtedColumn, int eleme
 }
 
 int InputSizeMatrix(int &countRows, int &countCols)
-/*
- * Функция запрашивает у пользователя кол-во строк, столбцов.
- * Больше 0, но меньше максимальных.
- * @output by reference:
- *      countRows - кол-во строк
- *      countCols - кол-во столбцов
- */
 {
     do {
         cout << "Введите количество строк: ";
@@ -51,7 +44,7 @@ Matrix *CreateZeroMatrix(int &rows, int &columns) {
     auto *matrix = new Matrix(rows, columns);
     for (int column = 0; column < columns; column++) {
         for (int row = 0; row < rows; row++) {
-            matrix->changeElement(column, row, -1);
+            matrix->changeElement(column, row, 0);
         }
     }
     return matrix;
@@ -63,8 +56,19 @@ Matrix *CreateRandomMatrix(int &rows, int &columns) {
     return matrix;
 }
 
-Matrix *CreateMatrixFromFile(int &rows, int &columns, string &name) {
-
+bool CreateMatrixFromFile(int rows, int columns, fstream &fin, Matrix *matrix) {
+    int element;
+    if (fin.is_open()) {
+        for (int col = 0; col < columns; col++) {  // stop loops if nothing to read
+            for (int row = 0; row < rows; row++) {
+                fin >> element;
+                matrix->changeElement(col, row, element);
+            }
+        }
+        return true;
+    } else {
+        return false;
+    }
 }
 
 void MoveArrow(int &arrow, int direction, int limit) {
