@@ -73,7 +73,7 @@ void MoveArrow(int &arrow, int direction, int limit) {
     }
 }
 
-int MatrixEditor(Matrix *matrix) {
+void MatrixEditor(Matrix *matrix) {
     int c, column = 0, row = 0;
     int element;
     bool enterPressed = false;
@@ -106,5 +106,4 @@ int MatrixEditor(Matrix *matrix) {
         refresh();
     } while (c != 27);
     endwin();
-    return 0;
 }

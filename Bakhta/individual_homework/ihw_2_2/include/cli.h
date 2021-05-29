@@ -13,7 +13,7 @@
  *      0 - все штатно
  *      ...
  */
-int MatrixEditor(Matrix *);
+void MatrixEditor(Matrix *);
 
 /*
  * Выводит на экран матрицу, а также вспомогательные заметки
