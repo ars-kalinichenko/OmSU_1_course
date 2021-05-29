@@ -177,4 +177,3 @@ void Matrix::mergeSort(int *keys, int low, int high) {
         merge(keys, _matrix, low, high, mid);
     }
 }
-

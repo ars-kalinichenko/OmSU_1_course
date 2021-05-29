@@ -57,5 +57,3 @@ int main() {
         }
     } while (num != 6);
 }
-
-
