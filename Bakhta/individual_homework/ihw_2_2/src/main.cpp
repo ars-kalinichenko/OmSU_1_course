@@ -15,7 +15,7 @@ int main() {
     Matrix *matrix;
 
     do {
-        clearScreen();
+//        clearScreen();
         cout << "1. Создать таблицу с клавиатуры" << endl;
         cout << "2. Заполнить таблицу случайным образом" << endl;
         cout << "3. Заполнить таблицу из файла (input.txt)" << endl;
@@ -59,13 +59,10 @@ int main() {
             myFile.close();
         } else if (num == 6) {
             if (isCreated) {
-                int *keys = new int[matrix->getColumnsCount()];
                 matrix->sortMatrix();
-                delete[] keys;
             } else cout << "Матрица не задана!" << endl;
-
         } else if (num == 7) {
             exit(0);
         }
-    } while (num != 6);
+    } while (num != 7);
 }

@@ -5,6 +5,18 @@
 #include <random>
 
 using namespace std;
+void swapCols(const int *swaps, int **matrix, int columnCount, int rowCount) {
+    int tempIndex;
+    int **tempMatrix = new int *[columnCount];
+    for (int i = 0; i < columnCount; i++) {
+        tempMatrix[i] = matrix[i];
+    }
+    for (int col = 0; col < columnCount; col++) {
+        tempIndex = swaps[col];
+        matrix[col] = tempMatrix[tempIndex];
+    }
+    delete[] tempMatrix;
+}
 
 Matrix::Matrix(int rows, int columns) {
     if (rows > 0 and columns > 0) {
@@ -105,12 +117,20 @@ void Matrix::_calculateKeys(int *keys) {
 
 
 void Matrix::sortMatrix() {
-
     if (_rows > 0 and _columns > 0) {
         int *keys = new int[_columns];
+        int *swaps = new int[_columns];
+        for (int col = 0; col < _columns; col++) {
+            swaps[col] = col;
+        }
+
         _calculateKeys(keys);
         _printKeys(keys);
-        mergeSort(keys, 0, _columns - 1);
+        mergeSort(keys, 0, _columns - 1, swaps);
+        swapCols(swaps, _matrix, _columns, _rows);
+        for (int i = 0; i < _columns; i++) {
+            cout << i << " -> " << swaps[i] << endl;
+        }
         _printKeys(keys);
         delete[] keys;
     } else _processError(SORT_ERROR);
@@ -124,59 +144,54 @@ void Matrix::_printKeys(int *keys) const {
     std::cout << std::endl;
 }
 
-void Matrix::merge(int *keys, int **matrix, int low, int high, int mid) {
+void Matrix::merge(int *keys, int *colsSwap, int low, int high, int mid) {
     int i, j, k;
     int *temp = new int[_columns];
-    int **tempMatrix = new int *[_columns];
-    for (int col = 0; col < _columns; col++) {
-        tempMatrix[col] = new int[_rows];
-    }
+
     i = low;
     k = low;
     j = mid + 1;
     while (i <= mid && j <= high) {
         if (keys[i] < keys[j]) {
             temp[k] = keys[i];
-            tempMatrix[k] = matrix[i];
+            colsSwap[k] = i;
             i++;
         } else {
             temp[k] = keys[j];
-            tempMatrix[k] = matrix[j];
+            colsSwap[k] = j;
             j++;
         }
         k++;
     }
     while (i <= mid) {
         temp[k] = keys[i];
-        tempMatrix[k] = matrix[i];
+        colsSwap[k] = i;
         k++;
         i++;
     }
     while (j <= high) {
         temp[k] = keys[j];
-        tempMatrix[k] = matrix[j];
+        colsSwap[k] = j;
         k++;
         j++;
     }
+
     for (i = low; i < k; i++) {
         keys[i] = temp[i];
-        matrix[i] = tempMatrix[i];
     }
+
 
     delete[] temp;
-    delete[] tempMatrix;
 }
 
-void Matrix::mergeSort(int *keys, int low, int high) {
+
+void Matrix::mergeSort(int *keys, int low, int high, int *swaps) {
     int mid;
+
     if (low < high) {
-        //divide the array at mid and sort independently using merge sort
         mid = (low + high) / 2;
-        mergeSort(keys, low, mid);
-        mergeSort(keys, mid + 1, high);
-        //merge or conquer sorted arrays
-        merge(keys, _matrix, low, high, mid);
+        mergeSort(keys, low, mid, swaps);
+        mergeSort(keys, mid + 1, high, swaps);
+        merge(keys, swaps, low, high, mid);
     }
 }
-// todo: add rows, cols to file
-//todo: 2d temp array -> ОДИН МАССИВ, У НАС ЖЕ СЕЙЧАС МАЛО ПАМЯТИ, ДА
