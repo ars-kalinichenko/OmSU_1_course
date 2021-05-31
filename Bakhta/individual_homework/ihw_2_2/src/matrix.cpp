@@ -178,7 +178,5 @@ void Matrix::mergeSort(int *keys, int low, int high) {
         merge(keys, _matrix, low, high, mid);
     }
 }
-
-//todo: add reading from file
 // todo: add rows, cols to file
 //todo: 2d temp array -> ОДИН МАССИВ, У НАС ЖЕ СЕЙЧАС МАЛО ПАМЯТИ, ДА
