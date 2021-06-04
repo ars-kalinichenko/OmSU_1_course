@@ -27,7 +27,7 @@ int main() {
         do {
             cout << "Введите номер команды: ";
             cin >> num;
-        } while (num < 1 || num > 6);
+        } while (num < 1 || num > 7);
         if (num == 1) {
             InputSizeMatrix(rows, columns);
             matrix = CreateZeroMatrix(rows, columns);
@@ -69,5 +69,5 @@ int main() {
         } else if (num == 8) {
             exit(0);
         }
-    } while (num != 7);
+    } while (num != 8);
 }

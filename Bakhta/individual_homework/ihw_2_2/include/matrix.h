@@ -21,7 +21,7 @@ private:
 
     void _printKeys(int *) const;
 
-    void merge(int *, int *, int, int, int) const;
+    void merge(int *, int **, int, int, int);
 
 public:
 
@@ -58,7 +58,8 @@ public:
 
     ~Matrix();
 
-    void mergeSort(int *, int, int, int*);
+
+    void mergeSort(int *, int, int);
 };
 
 #endif //SEMINAR_MATRIX_H
