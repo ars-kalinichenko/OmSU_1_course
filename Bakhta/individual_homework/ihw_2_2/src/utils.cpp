@@ -50,7 +50,7 @@ int SaveMatrixToFile(Matrix *matrix, ofstream &fileStream) {
     return 0;
 }
 
-Matrix *CreateMatrixFromFile(int rows, int columns, fstream &fin) {
+Matrix *CreateMatrixFromFile(fstream &fin) {
     int rowsCount = 0;
     int colsCount = 0;
 
@@ -69,4 +69,19 @@ Matrix *CreateMatrixFromFile(int rows, int columns, fstream &fin) {
         return matrix;
     }
     return nullptr;
+}
+
+Matrix *CreateMatrixFromKeyboard(int rows, int cols) {
+    int element;
+
+    auto *matrix = new Matrix(rows, cols);
+
+    cout << "Введите элементы матрицы: ";
+    for (int col = 0; col < cols; col++) {  // stop loops if nothing to read
+        for (int row = 0; row < rows; row++) {
+            cin >> element;
+            matrix->changeElement(col, row, element);
+        }
+    }
+    return matrix;
 }

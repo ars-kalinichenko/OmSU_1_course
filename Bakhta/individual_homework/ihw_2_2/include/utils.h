@@ -42,7 +42,10 @@ Matrix *CreateRandomMatrix(int &, int &);
  * @returns:
  *      Указатель на созданную матрицу
  */
-Matrix *CreateMatrixFromFile(int, int, std::fstream &);
+Matrix *CreateMatrixFromFile(std::fstream &);
+
+Matrix *CreateMatrixFromKeyboard(int, int);
+
 
 int SaveMatrixToFile(Matrix *, std::ofstream &);
 

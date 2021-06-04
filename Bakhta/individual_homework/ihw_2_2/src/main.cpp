@@ -15,14 +15,15 @@ int main() {
     Matrix *matrix;
 
     do {
-//        clearScreen();
+        clearScreen();
         cout << "1. Создать таблицу с клавиатуры" << endl;
         cout << "2. Заполнить таблицу случайным образом" << endl;
         cout << "3. Заполнить таблицу из файла (input.txt)" << endl;
-        cout << "4. Показать матрицу" << endl;
-        cout << "5. Сохранить матрицу в файл (output.txt)" << endl;
-        cout << "6. Выполнить сортировку" << endl;
-        cout << "7. Завершить работу" << endl;
+        cout << "4. Заполнить таблицу с клавиатуры" << endl;
+        cout << "5. Показать матрицу" << endl;
+        cout << "6. Сохранить матрицу в файл (output.txt)" << endl;
+        cout << "7. Выполнить сортировку" << endl;
+        cout << "8. Завершить работу" << endl;
         do {
             cout << "Введите номер команды: ";
             cin >> num;
@@ -41,15 +42,19 @@ int main() {
             cout << "Введите полный путь до файла: ";
             cin >> path;
             fin.open(path);
-            matrix = CreateMatrixFromFile(9, 9, fin);
+            matrix = CreateMatrixFromFile(fin);
             if (matrix)
                 isCreated = true;
             fin.close();
         } else if (num == 4) {
+            InputSizeMatrix(rows, columns);
+            matrix = CreateMatrixFromKeyboard(rows, columns);
+            isCreated = true;
+        } else if (num == 5) {
             if (isCreated) {
                 MatrixEditor(matrix);
             } else cout << "Матрица не задана!" << endl;
-        } else if (num == 5) {
+        } else if (num == 6) {
             ofstream myFile;
             string path;
             cout << "Введите полный путь до файла: ";
@@ -57,11 +62,11 @@ int main() {
             myFile.open(path);
             SaveMatrixToFile(matrix, myFile);
             myFile.close();
-        } else if (num == 6) {
+        } else if (num == 7) {
             if (isCreated) {
                 matrix->sortMatrix();
             } else cout << "Матрица не задана!" << endl;
-        } else if (num == 7) {
+        } else if (num == 8) {
             exit(0);
         }
     } while (num != 7);

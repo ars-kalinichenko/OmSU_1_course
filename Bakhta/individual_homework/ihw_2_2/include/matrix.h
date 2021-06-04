@@ -21,7 +21,7 @@ private:
 
     void _printKeys(int *) const;
 
-    void merge(int *, int *, int, int, int);
+    void merge(int *, int *, int, int, int) const;
 
 public:
 

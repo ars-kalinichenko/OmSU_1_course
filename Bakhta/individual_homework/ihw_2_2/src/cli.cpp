@@ -1,7 +1,6 @@
 #include <include/cli.h>
 #include <iostream>
 #include <ncurses.h>
-#include <fstream>
 
 using namespace std;
 
@@ -10,6 +9,7 @@ void clearScreen() {
 }
 
 void UpdateScreen(Matrix *matrix, int inputtedRow, int inputtedColumn, int element) {
+    clearScreen();
     clear();
     for (int row = 0; row < matrix->getRowsCount(); row++) {
         for (int column = 0; column < matrix->getColumnsCount(); column++) {

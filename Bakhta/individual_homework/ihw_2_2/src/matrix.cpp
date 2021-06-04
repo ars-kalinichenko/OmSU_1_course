@@ -144,7 +144,7 @@ void Matrix::_printKeys(int *keys) const {
     std::cout << std::endl;
 }
 
-void Matrix::merge(int *keys, int *colsSwap, int low, int high, int mid) {
+void Matrix::merge(int *keys, int *colsSwap, int low, int high, int mid) const {
     int i, j, k;
     int *temp = new int[_columns];
 
