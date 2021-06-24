@@ -1,14 +1,19 @@
-#include "include/stack.h"
-#include "iostream"
+#include <cassert>
+#include <include/stack.h>
 
 using namespace std;
 
-int main() {
+void testStack() {
     Stack stack;
     stack.push(10);
     stack.push(20);
-    cout << "Is empty? " << stack.isEmpty() << endl;
-    cout << "Last element: " << stack.peek() << endl;
-    cout << stack.pop() << " " << stack.pop() << endl;
-    cout << "Is empty? " << stack.isEmpty() << endl;
+    assert(!stack.isEmpty());
+    assert(20 == stack.peek());
+    assert(20 == stack.pop());
+    assert(10 == stack.pop());
+    assert(stack.isEmpty());
+}
+
+int main() {
+    testStack();
 }
