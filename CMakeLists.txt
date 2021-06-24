@@ -4,7 +4,7 @@ project(OmSU_2020 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14) # стандарт с++ 2014
 
 # set your path to subproject(seminars, labs, ihw)
-set(MAIN_DIR ${PROJECT_SOURCE_DIR}/Bakhta/individual_homework/ihw_2_2)
+set(MAIN_DIR ${PROJECT_SOURCE_DIR}/exam/ADT/arrays)
 
 set(PROJECT_HEADERS_DIR ${MAIN_DIR}/include)
 set(PROJECT_SOURCES_DIR ${MAIN_DIR}/src)

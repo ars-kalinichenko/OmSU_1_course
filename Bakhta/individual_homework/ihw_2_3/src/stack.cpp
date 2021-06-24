@@ -1,7 +1,5 @@
 #include "include/stack.h"
-
 #include "include/constants.h"
-using namespace std;
 
 bool Stack::push(char x) {
     if (top >= (MAX - 1)) {
@@ -18,8 +16,7 @@ char Stack::pop() {
         code = STACK_UNDERFLOW;
         return 0;
     } else {
-        char x = a[top--];
-        return x;
+        return a[top--];
     }
 }
 
@@ -28,8 +25,7 @@ char Stack::peek() {
         code = STACK_EMPTY;
         return 0;
     } else {
-        char x = a[top];
-        return x;
+        return a[top];
     }
 }
 
