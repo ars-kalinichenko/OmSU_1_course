@@ -5,10 +5,9 @@
 
 class Stack {
     int top;
+    int arr[MAX]{};
 
 public:
-    int arr[MAX]{}; // Maximum size of Stack
-
     Stack() { top = -1; }
 
     bool push(int x);
