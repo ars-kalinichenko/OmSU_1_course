@@ -1,7 +1,6 @@
-#include <cassert>
 #include <include/stack.h>
+#include <cassert>
 
-using namespace std;
 
 void testStack() {
     Stack stack;

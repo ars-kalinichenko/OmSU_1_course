@@ -23,7 +23,6 @@ public:
     int peek() const;
 
     bool isEmpty() const;
-
 };
 
 #endif //OMSU_2020_STACK_H
