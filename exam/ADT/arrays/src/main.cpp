@@ -1,4 +1,6 @@
 #include <cassert>
+#include <include/deque.h>
+#include <iostream>
 #include "include/stack.h"
 #include "include/queue.h"
 
@@ -25,7 +27,28 @@ void testQueue() {
     assert(queue.isEmpty());
 }
 
+void testDeque() {
+    Deque deque = Deque(20);
+    assert(deque.isEmpty());
+    assert(!deque.isFull());
+    deque.putFront(10);
+    assert(deque.getFront() == 10);
+    deque.putFront(30);
+    assert(deque.getFront() == 30);
+    deque.deleteFront();
+    assert(deque.takeFront() == 10);
+    assert(deque.isEmpty());
+
+    deque.putRear(90);
+    deque.putRear(70);
+    deque.putFront(800);
+    assert(deque.takeFront() == 800);
+    assert(deque.takeFront() == 90);
+    assert(deque.takeFront() == 70);
+}
+
 int main() {
     testStack();
     testQueue();
+    testDeque();
 }

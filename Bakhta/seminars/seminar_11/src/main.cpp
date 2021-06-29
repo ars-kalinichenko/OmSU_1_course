@@ -10,7 +10,7 @@ void testQueue();
 
 int main() {
     testDeque();
-//    testQueue();
+    testQueue();
     return 0;
 }
 
